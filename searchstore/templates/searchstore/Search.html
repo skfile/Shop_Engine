@@ -1,0 +1,36 @@
+{% extends 'searchstore/Main.html'%}
+{% load static %}
+{% block content %}
+<div>
+    <div style="display: inline-block;">
+        <h1 class="Main_Talk" style="text-align: center; font-family: sans-serif; float: right;">
+            All Products
+        </h1>
+        <hr>
+    </div>
+
+    {% for i in products %}
+
+    {% cycle "<div class='row'>"  ""  "" %}
+    <div class="col-lg-4" style="transform: scale(0.7);">
+        <img class="thumbnail" src="{{i.Product_Image_Link}}">
+        <div class="box-element product">
+            <h6><strong>{{i.Product_Name}}</strong></h6>
+            <hr>
+            <!-- <button class="btn btn-outline-secondary add-btn">Go to Website</button> -->
+            <a class="btn btn-outline-success" href="{{i.Product_Link}}">Go to Website</a>
+            <h4 style="display: inline-block; float: right"><strong>{{i.Product_Price}}</strong></h4>
+            <!-- <h10 style="display: inline-block; float: right"><strong>Offered by:
+                                {{i.Product_Website_Name}}</strong>
+                        </h10> -->
+
+        </div>
+    </div>
+    {% cycle "" "" "</div>" %}
+
+    {% endfor %}
+
+
+</div>
+
+{% endblock content %}
