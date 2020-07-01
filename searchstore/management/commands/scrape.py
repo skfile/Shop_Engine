@@ -79,6 +79,9 @@ class Command(BaseCommand):
                         imageurl = ""
                         # notEnterCHECKER = False  # sadly temporary
 
+                    if imageurl == "":
+                        notEnterCHECKER = False
+
                     if producttag.find("Gift") > 0:
                         notEnterCHECKER = False
 
