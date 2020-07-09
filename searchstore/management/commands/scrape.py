@@ -51,15 +51,9 @@ class Command(BaseCommand):
                     producttag = container.find(
                         x.Container_Product_Tags_Path_Type, class_=x.Container_Product_Tags_Path_Class).text
 
+                    imageurl = ""
                     tempPage = requests.get(producturl)
                     tempsoup = BeautifulSoup(tempPage.text, 'lxml')
-                    # for y in tempsoup.findAll('img'):
-                    #     if y.get(x.Container_Image_URL_Path_Class) != None:
-                    #         tempimageurl = y.get(
-                    #             x.Container_Image_URL_Path_Class)
-                    #         tempindex = tempimageurl.find("?")
-                    #         imageurl = tempimageurl[0:tempindex]
-                    #         break
 
                     if tempsoup.findAll('img')[0].get(
                             x.Container_Image_URL_Path_Class) != None:
@@ -68,16 +62,37 @@ class Command(BaseCommand):
                     else:
                         imageurl = None
 
+                    # check
+                    # imageurls = []
+
+                    # temp = soup.findAll(
+                    #     'img', class_="featured-product__img lazyload")
+                    # for hello in temp:
+                    #     index = hello['srcset'].find("w,")-3
+                    #     coolguy = str(hello['srcset'])
+                    #     imageurls.append(coolguy[0:index])
+                    # for hope in imageurls:
+                    #     blankindex = name.find(" ")
+                    #     firstpart = name[0: blankindex]  # .lower()
+                    #     if hope.find(firstpart) > 0:
+                    #         self.stdout.write('%s added' % (hope))
+
+                    # temp = soup.findAll(
+                    #     'img', class_="x.Container_Image_URL_Path_Class")
+                    # temp = soup.findAll('img')
+                    # for hello in temp:
+                    #     newtemp = hello.get("x.Container_Image_URL_Path_Class")
+                    #     imageurl = newtemp['data-origin-img']
+                    # index = hello['data-srcset'].find(" 400w")
+                    # coolguy = str(hello['data-srcset'])
+                    # imageurl += coolguy[0:index]
+
                     # tempimageurls = []
                     # for a in tempsoup.findAll('img'):
                     #     checker = a.get(x.Container_Image_URL_Path_Class)
                     #     if checker != None:
                     #         tempimageurls.append(checker)
                     # imageurl = tempimageurls[0]
-
-                    if imageurl == None:
-                        imageurl = ""
-                        # notEnterCHECKER = False  # sadly temporary
 
                     if imageurl == "":
                         notEnterCHECKER = False
@@ -97,6 +112,8 @@ class Command(BaseCommand):
                             Product_Tags=producttag
                         )
                         self.stdout.write('%s added' % (name))
+                    else:
+                        self.stdout.write('%s NOT added' % (name))
         # bar.finish()
         self.stdout.write('job complete')
 

@@ -49,7 +49,7 @@ class crawledData(models.Model):
     Product_Name = models.CharField(max_length=400, null=True)
     Product_Price = models.CharField(max_length=200, null=True)
     Product_Link = models.CharField(max_length=500, null=True)
-    Product_Image_Link = models.CharField(max_length=500, null=True)
+    Product_Image_Link = models.CharField(max_length=2500, null=True)
     Product_Website_Name = models.CharField(max_length=300, null=True)
     Product_Tags = models.CharField(max_length=400, null=True)
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 
+
 <html>
 
 
@@ -40,9 +41,9 @@
             </ul>
             <!-- Button Below: -->
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" id="header-search" type="search"
-                    placeholder="Search the Shop Engine" aria-label="Search">
-                <button id="header-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search"
+                    placeholder="Search the Shop Engine" aria-label="Search" id="myinput">
+                <button onclick="getInputValue();" id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <ul>
 
@@ -108,9 +109,6 @@
 
 
 
-
-    <script src="{% static 'js/main.js' %}"></script>
-    <!-- <script type="text/javascript" src="{% static 'js/main.js' %}"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
