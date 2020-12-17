@@ -38,3 +38,7 @@ In order to run Django
 ````
 $ python manage.py runserver
 ````
+
+### Add eCommerce Websites for Scraping
+
+go to /admin, create entry, add neccesary links and html tags
