@@ -28,6 +28,10 @@ $ pip install -r requirements.txt
 ````
 $ python manage.py migrate
 ````
+3 - Configure the admin
+````
+$ python manage.py createsuperuser
+````
 ### Start the project.
 
 In order to run Django
